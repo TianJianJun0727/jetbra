@@ -145,7 +145,7 @@ async function createCode(code) {
 	let sigResultsBase64 = arrayBufferToBase64(await webcrypto.subtle.sign('RSASSA-PKCS1-v1_5', privateKey, new TextEncoder().encode(licensePartJson)));
 	let cert_base64 = pem2base64(pemEncodedCrt);
 
-	console.log(`${licenseId}-${licensePartBase64}-${sigResultsBase64}-${cert_base64}`);
+	return `${licenseId}-${licensePartBase64}-${sigResultsBase64}-${cert_base64}`;
 }
 
-createCode('WS');
+console.log(createCode('WS'));
